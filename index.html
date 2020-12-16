@@ -28,7 +28,7 @@
 
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <!-- /google font -->
+  <script src="https://unpkg.com/vue"></script>
 
   <title>Document</title>
 </head>
@@ -43,27 +43,24 @@
 
   <!-- main -->
   <main>
-
-
-
-<div id="todoApp">
-  <h3> {{message}} </h3>
-  <form name="todo-form" method="post" action="" v-on:submit.prevent="addTask">
-    <input name="add-todo" type="text" v-model="addTodoInput" v-bind:class="{error: hasError}"/>
-    
-    <button type="submit">Add</button>
+  <div id="app">
+ <img class="logo" src="https://www.boolean.careers/images/misc/logo.png" alt="">
+  <form v-on:submit.prevent>
+    <input type="text" v-model="newItem">
+    <button v-on:click="addItem">
+        Add
+    </button>
   </form>
-  
-  <div class="todo-ToDoList" v-if="ToDoList.length">
-    <h3>My lovely to Do Tasks</h3>
-    <ul>
-      <li v-for="list in ToDoList" :key="list.id">
-        <span class="title" contenteditable="true" v-on:keydown.enter="updateTask($event, list)" v-on:blur="updateTask($event, list)" v-bind:class="{completed: list.isComplete}">{{list.title}}</span></li>
-        <ul>  
-           
-    </ul>
-  </div>
-  
+  <ul>
+    <li v-for="(todo, index) in todos">
+      <input type="checkbox" v-model="todo.isDone">
+      <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
+      <button v-on:click="deleteItem(index)">
+      Delete
+      </button>
+    </li>
+  </ul>
+
 </div>
   </main>
   <!-- /main -->
@@ -74,8 +71,9 @@
 
   </footer>
   <!-- /footer -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
   <script type="text/javascript" src="assets/js/script.js">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
   </script>
 

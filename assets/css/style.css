@@ -1,3 +1,17 @@
-#todoApp{
-    text-align: center;
+
+
+#app{
+text-align: center;
+}
+
+
+#app ul {
+  list-style: none;
+}
+
+#app li>span.done {
+  text-decoration: line-through;
+}
+.logo{
+    width: 15%;
 }

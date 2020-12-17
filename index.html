@@ -43,11 +43,12 @@
 
   <!-- main -->
   <main>
+  <main>
   <div id="app">
  <img class="logo" src="https://www.boolean.careers/images/misc/logo.png" alt="">
   <form v-on:submit.prevent>
     <input type="text" v-model="newItem">
-    <button v-on:click="addItem">
+    <button class="btn" v-on:click="addItem">
         Add
     </button>
   </form>
@@ -55,12 +56,12 @@
     <li v-for="(todo, index) in todos">
       <input type="checkbox" v-model="todo.isDone">
       <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
-      <button v-on:click="deleteItem(index)">
+      <button class="deleteBTN" v-on:click="deleteItem(index)">
       Delete
       </button>
     </li>
   </ul>
-
+ <p v-if="todos.length == 0">Your list is empty!</p>
 </div>
   </main>
   <!-- /main -->

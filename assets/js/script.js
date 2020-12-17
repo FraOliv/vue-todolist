@@ -20,5 +20,7 @@ var app = new Vue({
     	// alert(index)
       this.todos.splice(index, 1)
     }
+
+    
   }
 })
